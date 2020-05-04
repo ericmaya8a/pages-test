@@ -9,7 +9,7 @@ function Navigation() {
     <nav>
       <ul>
         <li>
-          <NavLink to="/" isActive={isActive}>
+          <NavLink to="/dashboard" isActive={isActive}>
             Home
           </NavLink>
         </li>
