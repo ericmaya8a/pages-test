@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import About from './About';
 import Users from './Users';
@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <HashRouter basename="/">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="App">
         <Navigation />
         <Switch>
@@ -30,7 +30,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
