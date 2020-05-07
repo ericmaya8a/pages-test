@@ -4,7 +4,6 @@ import Dashboard from './Dashboard';
 import About from './About';
 import Users from './Users';
 import Navigation from './Navigation';
-import NotFound from './NotFound';
 import './App.css';
 
 function App() {
@@ -24,9 +23,6 @@ function App() {
           </Route>
           <Route exact path="/users">
             <Users />
-          </Route>
-          <Route>
-            <NotFound />
           </Route>
         </Switch>
       </div>
