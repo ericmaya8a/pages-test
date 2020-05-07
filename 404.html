@@ -39,7 +39,7 @@
         .replace(/&/g, '~and~')}${
         search ? '&q=' + search.slice(1).replace(/&/g, '~and~') : ''
       }${hash}`;
-      alert(url);
+      alert('url', url);
 
       l.replace(url);
 
