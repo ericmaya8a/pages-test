@@ -23,28 +23,23 @@
       // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
       // https://username.github.io/repo-name/?p=/one/two&q=a=b~and~c=d#qwe
       // Otherwise, leave segmentCount as 0.
-      var segmentCount = 1;
+      const segmentCount = 1;
 
-      var l = window.location;
-      l.replace(
-        l.protocol +
-          '//' +
-          l.hostname +
-          (l.port ? ':' + l.port : '') +
-          l.pathname
-            .split('/')
-            .slice(0, 1 + segmentCount)
-            .join('/') +
-          '/?p=/' +
-          l.pathname
-            .slice(1)
-            .split('/')
-            .slice(segmentCount)
-            .join('/')
-            .replace(/&/g, '~and~') +
-          (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-      );
+      const l = window.location;
+      const { hash, hostname, pathname, port, protocol, search } = l;
+      const url = `${protocol}//${hostname}${port ? ':' : ''}${pathname
+        .split('/')
+        .slice(0, 1 + segmentCount)
+        .join('/')}/?p=/${pathname
+        .slice(1)
+        .split('/')
+        .slice(segmentCount)
+        .join('/')
+        .replace(/&/g, '~and~')}${
+        search ? '&q=' + search.slice(1).replace(/&/g, '~and~') : ''
+      }${hash}`;
+
+      l.replace(url);
     </script>
   </head>
 
