@@ -8,13 +8,10 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="pages-test">
       <div className="App">
         <Navigation />
         <Switch>
-          <Route exact path="/pages-test">
-            <Redirect to="/dashboard" />
-          </Route>
           <Route exact path="/">
             <Redirect to="/dashboard" />
           </Route>
