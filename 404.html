@@ -27,42 +27,50 @@
 
       const l = window.location;
       const { hash, hostname, pathname, port, protocol, search } = l;
-      const url =
-        protocol +
-        '//' +
-        hostname +
-        (port ? ':' + port : '') +
-        pathname
+      // const url =
+      //   protocol +
+      //   '//' +
+      //   hostname +
+      //   (port ? ':' + port : '') +
+      //   pathname
+      //     .split('/')
+      //     .slice(0, 1 + segmentCount)
+      //     .join('/') +
+      //   '/?p=/' +
+      //   pathname
+      //     .slice(1)
+      //     .split('/')
+      //     .slice(segmentCount)
+      //     .join('/')
+      //     .replace(/&/g, '~and~') +
+      //   (search ? '&q=' + search.slice(1).replace(/&/g, '~and~') : '') +
+      //   hash;
+
+      const url = `${protocol}//${hostname}${port ? ':' : ''}${pathname
+        .split('/')
+        .slice(0, 1 + segmentCount)
+        .join('/')}/?p=/${pathname
+        .slice(1)
+        .split('/')
+        .slice(segmentCount)
+        .join('/')
+        .replace(/&/g, '~and~')}${
+        search ? '&q=' + search.slice(1).replace(/&/g, '~and~') : ''
+      }${hash}`;
+
+      alert(
+        'url:',
+        `${protocol}//${hostname}${port ? ':' : ''}${pathname
           .split('/')
           .slice(0, 1 + segmentCount)
-          .join('/') +
-        '/?p=/' +
-        pathname
+          .join('/')}/?p=/${pathname
           .slice(1)
           .split('/')
           .slice(segmentCount)
           .join('/')
-          .replace(/&/g, '~and~') +
-        (search ? '&q=' + search.slice(1).replace(/&/g, '~and~') : '') +
-        hash;
-      alert(
-        protocol +
-          '//' +
-          hostname +
-          (port ? ':' + port : '') +
-          pathname
-            .split('/')
-            .slice(0, 1 + segmentCount)
-            .join('/') +
-          '/?p=/' +
-          pathname
-            .slice(1)
-            .split('/')
-            .slice(segmentCount)
-            .join('/')
-            .replace(/&/g, '~and~') +
-          (search ? '&q=' + search.slice(1).replace(/&/g, '~and~') : '') +
-          hash
+          .replace(/&/g, '~and~')}${
+          search ? '&q=' + search.slice(1).replace(/&/g, '~and~') : ''
+        }${hash}`
       );
 
       l.replace(url);
