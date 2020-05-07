@@ -1,14 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import About from './About';
 import Users from './Users';
 import Navigation from './Navigation';
+import NotFound from './NotFound';
 import './App.css';
 
 function App() {
   return (
-    <BrowserRouter basename="pages-test">
+    <HashRouter basename="/">
       <div className="App">
         <Navigation />
         <Switch>
@@ -24,9 +25,12 @@ function App() {
           <Route exact path="/users">
             <Users />
           </Route>
+          <Route>
+            <NotFound />
+          </Route>
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
