@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 
-function Dashboard() {
+const Dashboard = () => {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
@@ -18,6 +18,6 @@ function Dashboard() {
       </a>
     </header>
   );
-}
+};
 
 export default Dashboard;
